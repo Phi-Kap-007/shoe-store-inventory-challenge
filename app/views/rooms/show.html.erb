@@ -1,0 +1,63 @@
+
+<div class="text-center page-header">
+    <h1 class="chat-title">IClack</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">General</div>
+      <div class="panel-body conversation" id="general_conversation">
+        <div id="messages">
+          <%= render @messages %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <form>
+          <label>Say something: </label> <input id="message" type="text" data-behavior="room_speaker" />
+          <button class="send" id="send">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-5">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Special</div>
+      <div class="panel-body conversation" id="special_conversation">
+        <div id="special_messages">
+          <%= render @special_messages %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <form>
+          <label>Say something special: </label> <input id="special_message" type="text" data-behavior="room_speaker" />
+          <button class="send" id="special_send">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="panel panel-success">
+      <div class="panel-heading">Online Users</div>
+      <div class="panel-body">
+        <div id="appearances">
+          <%= render @appearances %>
+        </div>
+      </div>
+    </div>
+
+    <% if current_user %>
+      <p><%= link_to "Log Out", destroy_user_session_path, method: :delete %></p>
+    <% end %>
+
+  </div>
+</div>
